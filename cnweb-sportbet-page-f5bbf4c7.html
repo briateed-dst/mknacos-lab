@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 · 资料索引与信息说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f6f8fc;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            padding: 4rem 1.5rem 3.2rem;
+            text-align: center;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 780px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #f1f5f9;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 1.2rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: #7dd3fc;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* 浅色正文区 */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.4rem 1.5rem 4rem;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.2rem 2.4rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .section:hover {
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.03);
+        }
+
+        h2 {
+            font-size: 1.65rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1.6rem;
+            margin-bottom: 0.55rem;
+            color: #1e293b;
+        }
+
+        p {
+            margin-bottom: 0.95rem;
+        }
+
+        ul {
+            padding-left: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        ul li {
+            margin-bottom: 0.45rem;
+            list-style-type: disc;
+        }
+
+        /* 强调色用于链接 */
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        a:hover {
+            color: #1d4ed8;
+            border-bottom-color: #2563eb;
+        }
+
+        .link-card {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.2rem 1.6rem;
+            margin-top: 1.2rem;
+            border-left: 4px solid #2563eb;
+        }
+
+        .link-card p {
+            margin: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.4rem 0 0.4rem;
+        }
+
+        .feature-item {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+        }
+
+        .feature-item strong {
+            color: #0f172a;
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-item span {
+            font-size: 0.92rem;
+            color: #475569;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            color: #0f172a;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            text-align: center;
+            font-size: 0.88rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+        }
+
+        .footer-note a {
+            color: #475569;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.2);
+        }
+
+        .footer-note a:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .hero {
+                padding: 3rem 1rem 2.4rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 -->
+<header class="hero">
+    <div class="hero-content">
+        <span class="hero-tag">资料索引 · 信息说明</span>
+        <h1>竞彩信息整理与使用参考</h1>
+        <p>从资料整理视角了解竞彩网，把握信息脉络，理性看待体育竞猜内容。</p>
+    </div>
+</header>
+
+<!-- 浅色正文区 -->
+<main class="container">
+
+    <!-- 摘要 -->
+    <section class="section">
+        <h2>摘要</h2>
+        <p>在日常信息检索中，体育竞猜类网站常被作为数据参考和赛事资讯的汇集地。本文档围绕 <a href="https://cnweb-sportbet.com">竞彩网</a> 这一站点，从内容组织、使用场景和注意事项三个层面展开说明。不夸大、不诱导，仅作为一份客观的资料索引，帮助有需要的读者建立基本认知。</p>
+        <p>需要提前说明：任何竞猜行为都应建立在当地法律框架内，本文不构成参与建议，仅提供功能层面的信息梳理。</p>
+    </section>
+
+    <!-- 亮点 / 特点 -->
+    <section class="section">
+        <h2>特点概览</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>赛事覆盖</strong>
+                <span>涵盖足球、篮球等主流体育项目，提供多维度数据表格。</span>
+            </div>
+            <div class="feature-item">
+                <strong>信息密度</strong>
+                <span>页面内整合赔率变化、历史交锋、近期战绩等实用参考项。</span>
+            </div>
+            <div class="feature-item">
+                <strong>界面逻辑</strong>
+                <span>导航层级相对清晰，适合习惯先浏览后细查的用户。</span>
+            </div>
+            <div class="feature-item">
+                <strong>更新节奏</strong>
+                <span>数据随赛事进程保持同步，适合关注实时动态的访客。</span>
+            </div>
+        </div>
+        <p style="margin-top: 1rem;">以上特点均基于日常信息整理，不同使用者可能有不同体验，建议自行对照需求判断。</p>
+    </section>
+
+    <!-- 使用建议 / 场景 -->
+    <section class="section">
+        <h2>使用参考与场景举例</h2>
+        <p>如果你平时喜欢在周末翻看球赛前瞻，或者习惯在赛前快速查阅两支队伍的近期数据，那么这类站点能省下不少来回切换页面的时间。下面列举几个常见用法：</p>
+        <ul>
+            <li><strong>赛前预习</strong> — 浏览对阵列表，提前了解当日焦点场次的基本面。</li>
+            <li><strong>数据对照</strong> — 将网站提供的统计表格与官方体育媒体信息交叉验证。</li>
+            <li><strong>趋势观察</strong> — 留意赔率数值的日常波动，但不对短期变化做过度解读。</li>
+            <li><strong>信息归档</strong> — 将历史赛果作为个人兴趣笔记的一部分，不用于任何投注决策。</li>
+        </ul>
+        <p>使用过程中建议保持自己的节奏，不要被页面内的动态数字带偏注意力。毕竟资料整理的价值在于辅助判断，而非替代思考。</p>
+    </section>
+
+    <!-- 可信但克制 -->
+    <section class="section">
+        <h2>可信度与注意点</h2>
+        <p>任何体育竞猜类信息源都存在一定局限性。就 <a href="https://cnweb-sportbet.com">竞彩网</a> 而言，其数据呈现相对规范，但使用者仍需注意：</p>
+        <ul>
+            <li>赔率与指数由合作方提供，可能存在延时或偏差，不能等同于实时市场。</li>
+            <li>部分赛事信息来源于公开渠道，建议以官方体育机构发布为准。</li>
+            <li>页面中可能出现推介类内容，请理性看待，不盲从。</li>
+            <li>未成年人不应接触任何竞猜相关内容，请监护人妥善引导。</li>
+        </ul>
+        <div class="link-card">
+            <p>若想直接访问该站进行信息查阅，可使用链接：<a href="https://cnweb-sportbet.com">竞彩网</a>。再次提醒，本文仅作资料索引用途，不鼓励任何形式的博彩行为。</p>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="section">
+        <h2>常见疑问简述</h2>
+        <div class="faq-item">
+            <strong>站内信息适合用来做投注参考吗？</strong>
+            <p>信息可作为背景参考，但投注决策涉及个人判断与风险承担，请勿完全依赖单一来源。建议综合多方数据，并遵守当地法律法规。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否需要注册或付费？</strong>
+            <p>据目前公开情况，浏览基础数据与赛事列表无需注册。具体功能以网站实际页面为准，请自行查看相关说明。</p>
+        </div>
+        <div class="faq-item">
+            <strong>数据更新速度如何？</strong>
+            <p>通常与赛事进程保持同步，但受网络、数据源等因素影响，偶尔会有延迟。重要时间节点建议刷新页面确认。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否提供移动端适配？</strong>
+            <p>该站点在手机浏览器上响应式表现尚可，大多数功能可正常使用，具体以实际体验为准。</p>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <p>本文档为独立信息说明，与 <a href="https://cnweb-sportbet.com">竞彩网</a> 无任何商业关联。内容仅供资料整理参考，请理性阅读。</p>
+        <p style="margin-top: 0.6rem; font-size: 0.82rem;">最后更新：2025 · 信息索引</p>
+    </div>
+
+</main>
+
+</body>
+</html>
